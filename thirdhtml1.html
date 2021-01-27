@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../angular.min.js"></script>
+    <script src="thirdscript1.js"></script>
+</head>
+
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        <ul>
+            <li ng-repeat="country in countries">
+                {{country.name}} - Index = {{$index}}
+                <ul>
+                    <li ng-repeat="city in country.cities">
+                        {{city.name}} - Parent Index = {{$parent.$index}}, - Index = {{$index}}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
