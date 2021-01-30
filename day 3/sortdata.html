@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../angular.min.js"></script>
+    <script src="sortdata.js"></script>
+    <link rel="stylesheet" href="filters.css">
+
+</head>
+
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        Order By : <select ng-model="sortColumn">
+                        <option value="name">Name ASC</option>
+                        <option value="gender">Gender ASC</option>
+                        <option value="dateOfBirth">Date of Birth ASC</option>
+                        <option value="-salary">Salary DESC</option>
+                    </select>
+        <br>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | orderBy :sortColumn">
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.dateOfBirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender }}</td>
+                    <td>{{employee.salary }}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
